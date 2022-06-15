@@ -1,0 +1,3 @@
+= Showcase for Nomadbased on Quarkus
+
+This project holds a showcase for various Nomad related things.
