@@ -1,38 +1,53 @@
-.DEFAULT_GOAL := jib
+define JSON_TODO
+curl -X 'POST' \
+  'http://localhost:8080/todo' \
+  -H 'accept: */*' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "description": "string",
+  "done": true,
+  "dueDate": {
+    "due": "2021-05-07",
+    "start": "2021-05-07"
+  },
+  "title": "string"
+}'
+endef
+export JSON_TODO
 
-clean:
-	mvn clean
+# Tools
+rest-create:
+	@echo $$JSON_TODO | bash
 
-build: clean
-	mvn build
+rest-list:
+	@curl -X 'GET' 'http://localhost:8090/todo' -H 'accept: */*' | jq .
 
-run: clean
-	mvn quarkus:dev
+# Env
+env-testcontainers:
+	launchctl setenv TESTCONTAINERS_CHECKS_DISABLE true
+	launchctl setenv TESTCONTAINERS_RYUK_DISABLED true
+	launchctl setenv TESTCONTAINERS_DOCKER_SOCKET_OVERRIDE unix://${HOME}/.local/share/containers/podman/machine/podman-machine-default/podman.sock
 
-jib: clean
+env-podman:
+	launchctl setenv DOCKER_HOST unix://${HOME}/.local/share/containers/podman/machine/podman-machine-default/podman.sock
+
+# Podman
+pd-start:
+	podman machine start
+
+pd-jib: env-podman env-testcontainers
 	mvn package -Dquarkus.container-image.build=true
 
-docker: clean
+pd-jib-push: env-podman env-testcontainers
+	mvn clean
 	mvn package -Dquarkus.container-image.build=true -Dquarkus.container-image.push=true
 
-nomad-start:
+# Nomad
+nd-start:
 	sudo nomad agent -dev -bind 0.0.0.0 -log-level INFO
 
-nomad-status:
+nd-status:
 	nomad node status
 
-nomad-members:
-	nomad server members
-
-.PHONY: docs
-docs:
-	mvn -f docs/pom.xml generate-resources
-
-	@echo
-	@echo "******************************************************"
-	@echo "*                                                    *"
-	@echo "* Documentation can be found here:                   *"
-	@echo "* docs/target/generated-docs/1.0-SNAPSHOT/index.html *"
-	@echo "*                                                    *"
-	@echo "******************************************************"
-	@echo
+nd-open:
+	open http://localhost:4646
