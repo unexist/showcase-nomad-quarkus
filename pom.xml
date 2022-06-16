@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>showcase-nomad-quarkus</artifactId>
+    <version>0.1</version>
+
+    <parent>
+        <groupId>dev.unexist.showcase</groupId>
+        <artifactId>quarkus-parent</artifactId>
+        <version>0.1</version>
+    </parent>
+
+    <properties>
+        <!-- Helm -->
+        <helm-plugin.version>5.6</helm-plugin.version>
+
+        <chartName>quarkus</chartName>
+        <skipSnapshotChart>false</skipSnapshotChart>
+        <helmVersion>2.16.1</helmVersion>
+        <chartRepoUsername>x</chartRepoUsername>
+        <chartRepoPassword>x </chartRepoPassword>
+        <chartRepoUrl>x</chartRepoUrl>
+    </properties>
+
+    <dependencies>
+        <!-- Quarkus -->
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-smallrye-health</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-smallrye-metrics</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-container-image-jib</artifactId>
+        </dependency>
+
+        <!-- Database -->
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-hibernate-orm</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-hibernate-orm-panache</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-jdbc-postgresql</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-devservices-postgresql</artifactId>
+        </dependency>
+    </dependencies>
+    <build>
+        <plugins>
+            <!-- Deployment -->
+            <plugin>
+                <groupId>com.kiwigrid</groupId>
+                <artifactId>helm-maven-plugin</artifactId>
+                <version>${helm-plugin.version}</version>
+                <configuration>
+                    <chartDirectory>deployment/helm/${chartName}</chartDirectory>
+                    <chartVersion>${project.version}</chartVersion>
+
+                    <uploadRepoStable>
+                        <name>Repo</name>
+                        <url>${chartRepoUrl}</url>
+                        <username>${chartRepoUsername}</username>
+                        <password>${chartRepoPassword}</password>
+                        <type>ARTIFACTORY</type>
+                    </uploadRepoStable>
+                    <useLocalHelmBinary>true</useLocalHelmBinary>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
