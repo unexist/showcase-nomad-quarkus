@@ -43,9 +43,6 @@ pd-jib-push: env-podman env-testcontainers
 	mvn package -Dquarkus.container-image.build=true -Dquarkus.container-image.push=true
 
 # Nomad
-nd-start:
-	sudo nomad agent -dev -bind 0.0.0.0 -log-level INFO
-
 nd-status:
 	nomad node status
 
