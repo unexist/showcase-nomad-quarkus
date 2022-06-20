@@ -3,17 +3,15 @@ job "infrastructure" {
   type        = "service"
 
   group "infrastructure" {
-    count = 1
-
     network {
       port "db" { static = 5432 }
     }
 
     task "database" {
-      driver = "docker"
+      driver = "podman"
 
       config {
-        image = "postgres"
+        image = "docker://postgres"
         network_mode = "host"
         ports = ["db"]
       }
