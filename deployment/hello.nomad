@@ -8,7 +8,7 @@ job "infrastructure" {
       driver = "podman"
 
       config {
-        image = "docker://hello-world"
+        image        = "oci-archive:./hello-world.tar"
         network_mode = "host"
       }
 
