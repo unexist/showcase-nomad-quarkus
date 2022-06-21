@@ -12,7 +12,6 @@ nd-infra:
 	nomad job run infrastructure.nomad
 
 nd-plugin:
-	git clone git@github.com:hashicorp/nomad-driver-podman
-	cd nomad-driver-podman
-	make dev
-	cp build/nomad-driver-podman ../nomad/plugins
+	git -C nomad-driver-podman pull || git clone --quiet git@github.com:hashicorp/nomad-driver-podman
+	$(MAKE) -f GNUmakefile -C nomad-driver-podman dev
+	cp nomad-driver-podman/build/nomad-driver-podman nomad/plugins
