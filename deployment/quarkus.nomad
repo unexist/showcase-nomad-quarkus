@@ -13,9 +13,9 @@ job "quarkus" {
       driver = "docker"
 
       config {
-        image = "showcase-nomad-quarkus:0.1"
+        image        = "showcase-nomad-quarkus:0.1"
         network_mode = "host"
-        ports = ["quarkus"]
+        ports        = ["quarkus"]
       }
     }
   }

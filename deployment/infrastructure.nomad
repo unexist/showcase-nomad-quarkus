@@ -11,14 +11,14 @@ job "infrastructure" {
       driver = "podman"
 
       config {
-        image = "docker://postgres"
+        image        = "docker://postgres"
         network_mode = "host"
-        ports = ["db"]
+        ports        = ["db"]
       }
 
       env {
-        POSTGRES_USER="root"
-        POSTGRES_PASSWORD="root"
+        POSTGRES_USER     = "root"
+        POSTGRES_PASSWORD = "root"
       }
 
       service {
