@@ -48,3 +48,12 @@ nd-status:
 
 nd-open:
 	open http://localhost:4646
+
+nd-consul-start:
+	consul agent -dev -log-file=consul.log &
+
+nd-vault-start:
+	vault agent &
+
+nd-start: nd-consul-start
+	nomad agent -dev -config deployment/nomad.config -network-interface en0
