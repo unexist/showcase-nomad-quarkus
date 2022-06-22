@@ -1,18 +1,17 @@
 pd-build:
 	podman build --format docker -t postgres-ram -f postgres-ram/Dockerfile
 
-console-start:
-	consul agent -dev
+pd-hello:
+	podman run -it --rm -p 8080:80/tcp nginxdemos/hello
 
-nd-start:
-	#sudo nomad agent -dev -bind 0.0.0.0 -log-level INFO
-	sudo nomad agent -dev -config nomad.config -network-interface en0
+pd-hello-test:
+	curl http://localhost:8080
 
 nd-infra:
 	nomad job run infrastructure.nomad
 
 nd-hello:
-	podman save -o oci-archive -o hello-world.tar hello-world
+	podman save -o oci-archive -o hello.oci nginxdemos/hello
 	nomad job run hello.nomad
 
 nd-plugin:
