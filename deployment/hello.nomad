@@ -51,8 +51,8 @@ job "hello" {
       driver = "podman"
 
       config {
-        #image        = "oci-archive:/Users/christoph.kappel/Projects/showcase-nomad-quarkus/deployment/hello.oci"
-        image        = "docker://nginxdemos/hello"
+        image        = "oci-archive:/Users/christoph.kappel/Projects/showcase-nomad-quarkus/deployment/hello.oci"
+        #image        = "docker://nginxdemos/hello"
         #network_mode = "host"
         ports = ["http"]
       }
