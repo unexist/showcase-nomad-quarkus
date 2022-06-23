@@ -50,7 +50,7 @@ nd-open:
 	open http://localhost:4646
 
 nd-consul-start:
-	consul agent -dev -log-file=consul.log &
+	consul agent -dev -log-level=INFO -log-file=consul.log &
 
 nd-vault-start:
 	vault agent &
