@@ -32,6 +32,9 @@ env-podman:
 	launchctl setenv DOCKER_HOST unix://${HOME}/.local/share/containers/podman/machine/podman-machine-default/podman.sock
 
 # Podman
+pd-init:
+	podman machine init -v $HOME:$HOME
+
 pd-start:
 	podman machine start
 

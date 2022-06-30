@@ -10,10 +10,6 @@ pd-hello-test:
 nd-infra:
 	nomad job run infrastructure.nomad
 
-nd-hello:
-	podman save -o oci-archive -o hello.oci nginxdemos/hello
-	nomad job run hello.nomad
-
 nd-plugin:
 	git -C nomad-driver-podman pull || git clone --quiet git@github.com:hashicorp/nomad-driver-podman
 	$(MAKE) -f GNUmakefile -C nomad-driver-podman dev
