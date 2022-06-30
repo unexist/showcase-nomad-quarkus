@@ -38,3 +38,5 @@ release.properties
 
 # Project
 deployment/nomad-driver-podman/
+deployment/nomad/plugins/nomad-driver-podman
+deployment/nomad/logs/*.log
