@@ -8,7 +8,10 @@ pd-hello-test:
 	curl http://localhost:8080
 
 nd-infra:
-	nomad job run infrastructure.nomad
+	nomad job run jobs/infrastructure.nomad
+
+nd-serv:
+	nomad job run jobs/service.nomad
 
 nd-plugin:
 	git -C nomad-driver-podman pull || git clone --quiet git@github.com:hashicorp/nomad-driver-podman
