@@ -59,4 +59,4 @@ nd-vault-start:
 	vault agent &
 
 nd-start: nd-consul-start
-	nomad agent -dev -config deployment/nomad.config -network-interface en0
+	nomad agent -dev -config deployment/nomad/nomad.config -network-interface en0
