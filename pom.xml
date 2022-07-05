@@ -57,27 +57,4 @@
             <artifactId>quarkus-devservices-postgresql</artifactId>
         </dependency>
     </dependencies>
-    <build>
-        <plugins>
-            <!-- Deployment -->
-            <plugin>
-                <groupId>com.kiwigrid</groupId>
-                <artifactId>helm-maven-plugin</artifactId>
-                <version>${helm-plugin.version}</version>
-                <configuration>
-                    <chartDirectory>deployment/helm/${chartName}</chartDirectory>
-                    <chartVersion>${project.version}</chartVersion>
-
-                    <uploadRepoStable>
-                        <name>Repo</name>
-                        <url>${chartRepoUrl}</url>
-                        <username>${chartRepoUsername}</username>
-                        <password>${chartRepoPassword}</password>
-                        <type>ARTIFACTORY</type>
-                    </uploadRepoStable>
-                    <useLocalHelmBinary>true</useLocalHelmBinary>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
 </project>
