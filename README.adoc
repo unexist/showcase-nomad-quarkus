@@ -6,3 +6,4 @@ This project holds a showcase for various Nomad related things.
 
 - https://learn.hashicorp.com/tutorials/nomad/get-started-run?in=nomad%2Fget-started
 - https://github.com/hashicorp/nomad-driver-podman
+- https://www.nomadproject.io/docs/drivers/java
