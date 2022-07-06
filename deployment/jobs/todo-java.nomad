@@ -1,4 +1,4 @@
-job "quarkus" {
+job "todo-java" {
   datacenters = ["dc1"]
   type        = "service"
 

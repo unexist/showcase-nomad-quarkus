@@ -1,4 +1,4 @@
-job "quarkus" {
+job "todo-podman" {
   datacenters = ["dc1"]
   type        = "service"
 
