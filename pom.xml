@@ -12,18 +12,6 @@
         <version>0.1</version>
     </parent>
 
-    <properties>
-        <!-- Helm -->
-        <helm-plugin.version>5.6</helm-plugin.version>
-
-        <chartName>quarkus</chartName>
-        <skipSnapshotChart>false</skipSnapshotChart>
-        <helmVersion>2.16.1</helmVersion>
-        <chartRepoUsername>x</chartRepoUsername>
-        <chartRepoPassword>x </chartRepoPassword>
-        <chartRepoUrl>x</chartRepoUrl>
-    </properties>
-
     <dependencies>
         <!-- Quarkus -->
         <dependency>
@@ -40,7 +28,7 @@
         </dependency>
 
         <!-- Database -->
-        <dependency>
+       <!--<dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-hibernate-orm</artifactId>
         </dependency>
@@ -55,6 +43,21 @@
         <dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-devservices-postgresql</artifactId>
-        </dependency>
+        </dependency>-->
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <excludes>
+                        <exclude>**/JPATodoRepository.java</exclude>
+                        <exclude>**/PanacheTodoRepository.java</exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>
