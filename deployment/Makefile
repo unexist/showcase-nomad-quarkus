@@ -7,8 +7,8 @@ pd-hello-test:
 nd-todo-podman:
 	nomad job run jobs/todo-podman.nomad
 
-nd-todo-jar:
-	nomad job run jobs/todo-jar.nomad
+nd-todo-java:
+	nomad job run jobs/todo-java.nomad
 
 nd-plugin:
 	git -C nomad-driver-podman pull || git clone --quiet git@github.com:hashicorp/nomad-driver-podman
