@@ -9,7 +9,11 @@ job "todo-java" {
 
       config { # <6>
         jar_path = "/Users/christoph.kappel/Projects/showcase-nomad-quarkus/target/showcase-nomad-quarkus-0.1-runner.jar"
-        jvm_options = ["-Xmx2048m", "-Xms256m"]
+        jvm_options = ["-Xmx256m", "-Xms256m"]
+      }
+
+      resources { # <7>
+        memory = 256
       }
     }
   }
