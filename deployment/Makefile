@@ -11,7 +11,10 @@ nd-todo-java:
 	nomad job run jobs/todo-java.nomad
 
 nd-todo-java-curl:
-	curl --request POST --data @jobs/todo-java.nomad https://localhost:4646/v1/jobs
+	curl --request POST --data @jobs/todo-java.json http://localhost:4646/v1/jobs
+
+nd-todo-java-scale-up:
+	nomad job scale todo-java
 
 nd-plugin:
 	git -C nomad-driver-podman pull || git clone --quiet git@github.com:hashicorp/nomad-driver-podman

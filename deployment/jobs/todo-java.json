@@ -1,0 +1,29 @@
+{
+  "Job": {
+    "Datacenters": ["dc1"],
+    "ID": "todo-java",
+
+    "TaskGroups": [
+      {
+        "Name": "web",
+        "Count": 1,
+
+        "Tasks": [
+          {
+            "Driver": "java",
+            "Name": "todo-java",
+
+            "Config": {
+              "jar_path": "/Users/christoph.kappel/Projects/showcase-nomad-quarkus/target/showcase-nomad-quarkus-0.1-runner.jar",
+              "jvm_options": ["-Xmx256m", "-Xms256m"]
+            },
+
+            "Resources": {
+              "Memory": 256
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
