@@ -21,9 +21,17 @@
             "Resources": {
               "Memory": 256
             }
+          },
+        ],
+
+        "Network": {
+          "port": {
+            "http": {
+              "static": 8080
+            }
           }
-        ]
-      }
+        }
+    }
     ]
   }
 }

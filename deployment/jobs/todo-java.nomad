@@ -14,12 +14,12 @@ job "todo-java" {
 
       resources { # <7>
         memory = 256
+      }
+    }
 
-        network { # <8>
-          port "http" {
-            static = 8080
-          }
-        }
+    network { # <8>
+      port "http" {
+        static = 8080
       }
     }
   }
