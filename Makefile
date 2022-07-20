@@ -46,17 +46,21 @@ pd-jib-push: env-podman env-testcontainers
 	mvn package -Dquarkus.container-image.build=true -Dquarkus.container-image.push=true
 
 # Nomad
-nd-status:
-	nomad node status
-
-nd-open:
-	open http://localhost:4646
-
 nd-consul-start:
 	consul agent -dev -log-level=INFO -log-file=deployment/nomad/logs/consul.log &
 
 nd-vault-start:
 	vault agent &
 
-nd-start: nd-consul-start
+nd-nomad-start:
 	nomad agent -dev -config deployment/nomad/nomad.config -network-interface en0
+
+nd-start: nd-consul-start nd-nomad-start
+
+nd-start-single: nd-nomad-start
+
+nd-status:
+	nomad node status
+
+nd-open:
+	open http://localhost:4646
