@@ -4,6 +4,10 @@ This project holds a showcase for various Nomad related things.
 
 == Links
 
+- https://www.nomadproject.io/
+- https://www.consul.io/
+- https://fabiolb.net/
 - https://learn.hashicorp.com/tutorials/nomad/get-started-run?in=nomad%2Fget-started
-- https://github.com/hashicorp/nomad-driver-podman
 - https://www.nomadproject.io/docs/drivers/java
+- https://github.com/hashicorp/nomad-driver-podman
+- https://www.nomadproject.io/docs/drivers/raw_exec
