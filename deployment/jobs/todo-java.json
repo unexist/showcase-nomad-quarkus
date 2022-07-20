@@ -1,7 +1,7 @@
 {
   "Job": {
     "Datacenters": ["dc1"],
-    "ID": "todo-java",
+    "ID": "todo",
 
     "TaskGroups": [
       {
@@ -11,7 +11,7 @@
         "Tasks": [
           {
             "Driver": "java",
-            "Name": "todo-java",
+            "Name": "todo",
 
             "Config": {
               "jar_path": "/Users/christoph.kappel/Projects/showcase-nomad-quarkus/target/showcase-nomad-quarkus-0.1-runner.jar",

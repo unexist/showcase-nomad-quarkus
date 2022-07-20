@@ -1,10 +1,10 @@
-job "todo-java" {
+job "todo" {
   datacenters = ["dc1"] # <1>
 
   group "web" { # <2>
     count = 5 # <3>
 
-    task "todo-java" { # <4>
+    task "todo" { # <4>
       driver = "java" # <5>
 
       config { # <6>
@@ -23,11 +23,11 @@ job "todo-java" {
       }
 
       service {
-        name = "todo-java"
+        name = "todo"
         port = "http"
 
         tags = [
-          "urlprefix-/todo-java"
+          "urlprefix-/todo"
         ]
 
         check {

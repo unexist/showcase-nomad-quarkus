@@ -1,4 +1,4 @@
-job "todo-java" {
+job "todo" {
   datacenters = ["dc1"] # <1>
 
   group "web" { # <2>
@@ -17,11 +17,11 @@ job "todo-java" {
       }
 
       service {
-        name = "todo-java"
+        name = "todo"
         port = "http"
 
         tags = [
-          "urlprefix-/todo-java",
+          "urlprefix-/todo",
         ]
 
         check {
