@@ -62,5 +62,8 @@ nd-start-single: nd-nomad-start
 nd-status:
 	nomad node status
 
-nd-open:
+nd-nomad-open:
 	open http://localhost:4646
+
+nd-consul-open:
+	open http://localhost:8500

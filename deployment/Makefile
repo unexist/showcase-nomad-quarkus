@@ -19,6 +19,12 @@ nd-todo-java-scale-up:
 nd-todo-java-evals:
 	nomad job status -evals todo-java
 
+nd-consul:
+	nomad job run jobs/consul.nomad
+
+nd-fabio:
+	nomad job run jobs/fabio.nomad
+
 nd-plugin:
 	git -C nomad-driver-podman pull || git clone --quiet git@github.com:hashicorp/nomad-driver-podman
 	$(MAKE) -f GNUmakefile -C nomad-driver-podman dev
