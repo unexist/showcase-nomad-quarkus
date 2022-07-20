@@ -4,7 +4,7 @@ job "todo" {
   group "web" { # <2>
     count = 5 # <3>
 
-    task "todo-java" { # <4>
+    task "todo" { # <4>
       driver = "java" # <5>
 
       config { # <6>

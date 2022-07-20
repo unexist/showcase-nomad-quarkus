@@ -2,7 +2,7 @@ job "todo" {
   datacenters = ["dc1"] # <1>
 
   group "web" { # <2>
-    count = 1 # <3>
+    count = 5 # <3>
 
     task "todo" { # <4>
       driver = "java" # <5>
