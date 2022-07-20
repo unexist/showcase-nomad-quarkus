@@ -22,4 +22,3 @@ job "todo-java" {
     }
   }
 }
-
