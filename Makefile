@@ -53,7 +53,7 @@ nd-vault-start:
 	vault agent &
 
 nd-nomad-start:
-	nomad agent -dev -config deployment/nomad/nomad.config -network-interface en0
+	nomad agent -dev -config deployment/nomad/nomad.config # -network-interface en0
 
 nd-start: nd-consul-start nd-nomad-start
 
