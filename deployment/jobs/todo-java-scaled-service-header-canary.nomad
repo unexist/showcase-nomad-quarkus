@@ -15,6 +15,9 @@ job "todo" {
           "-Dquarkus.http.port=${NOMAD_PORT_http}",
           "-Dquarkus.http.header.TodoServer.value=${NOMAD_IP_http}:${NOMAD_PORT_http}",
           "-Dquarkus.http.header.TodoServer.path=/todo",
+          "-Dquarkus.http.header.TodoServer.methods=GET",
+          "-Dquarkus.http.header.TodoServerCanary.value=yes",
+          "-Dquarkus.http.header.TodoServer.path=/todo",
           "-Dquarkus.http.header.TodoServer.methods=GET"
         ]
       }
