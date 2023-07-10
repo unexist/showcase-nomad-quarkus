@@ -2,6 +2,10 @@
 
 This project holds a showcase for various Nomad related things.
 
+== OpenAPI spec
+
+- https://blog.unexist.dev/redoc/
+
 == Links
 
 - https://www.nomadproject.io/
